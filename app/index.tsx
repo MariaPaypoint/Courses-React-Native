@@ -9,20 +9,8 @@ export default function Index() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <ImageBackground
-        source={require("@/assets/images/hello-bg.png")}
-        style={{
-          flex: 1,
-        }}
-        resizeMode="cover"
-      >
-        <View
-          style={{
-            flex: 1,
-            alignItems: "stretch",
-            justifyContent: "space-between",
-          }}
-        >
+      <ImageBackground source={require("@/assets/images/hello-bg.png")} style={styles.bgImage} resizeMode="cover">
+        <View style={styles.container}>
           <Image source={require("@/assets/images/logo-for-light.png")} style={styles.logo} resizeMode="contain" />
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={[styles.button, styles.buttonMain]} onPress={() => router.push("/about")}>
@@ -39,6 +27,20 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "stretch",
+    justifyContent: "space-between",
+  },
+  bgImage: {
+    flex: 1,
+  },
+  logo: {
+    width: Math.min(windowWidth * 0.5, 300),
+    height: 100,
+    alignSelf: "center",
+    marginTop: 60,
+  },
   buttonsContainer: {
     marginBottom: 40,
     marginHorizontal: 24,
@@ -67,11 +69,5 @@ const styles = StyleSheet.create({
   },
   textAdv: {
     color: "white",
-  },
-  logo: {
-    width: Math.min(windowWidth * 0.5, 300),
-    height: 100,
-    alignSelf: "center",
-    marginTop: 60,
   },
 });
